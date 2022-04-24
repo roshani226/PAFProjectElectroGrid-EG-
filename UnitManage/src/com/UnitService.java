@@ -40,3 +40,6 @@ public class UnitService {
 	@Produces(MediaType.TEXT_PLAIN)
 	public String deleteUnit(String unitData)
 	{
+
+//Convert the input string to an XML document
+	 Document doc = Jsoup.parse(unitData, "", Parser.xmlParser());
