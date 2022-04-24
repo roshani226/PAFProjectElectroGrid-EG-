@@ -33,7 +33,7 @@ public class UnitService {
 	{
 	 String output = UnitObj.insertUnit (user_account_no, usage_date, used_units, price_per_unit);
 	return output;
-	}
+//Delete units	}
 @DELETE
 	@Path("/")
 	@Consumes(MediaType.APPLICATION_XML)
