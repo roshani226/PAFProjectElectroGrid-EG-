@@ -87,4 +87,68 @@ public class Payment {
 		return output;
 	}
 
-	
+	public String updatePayment(String pyId, String pAcc, String cName, String pyDate, String amount) {
+		String output = "";
+
+		try {
+			Connection con = connect();
+
+			if (con == null) {
+				return "Error while connecting to the database for updating.";
+			}
+
+			// create a prepared statement
+			String query = "UPDATE pay1 SET pAcc=?,cName=?,pyDate=?,amount=? WHERE pyId=?";
+
+			PreparedStatement preparedStmt = con.prepareStatement(query);
+
+			// binding values
+			preparedStmt.setString(1, pAcc);
+			preparedStmt.setString(2, cName);
+			preparedStmt.setString(3, pyDate);
+			preparedStmt.setString(4, amount);
+			preparedStmt.setInt(5, Integer.parseInt(pyId));
+
+			// execute the statement
+			preparedStmt.execute();
+			con.close();
+
+			output = "Updated successfully";
+		} catch (Exception e) {
+			output = "Error while updating the Payment.";
+			System.err.println(e.getMessage());
+		}
+		return output;
+	}
+
+	public String deletePayment(String pyId) {
+
+		String output = "";
+
+		try {
+			Connection con = connect();
+
+			if (con == null) {
+				return "Error while connecting to the database for deleting.";
+			}
+
+			// create a prepared statement
+			String query = "delete from pay1 where pyId=?";
+
+			PreparedStatement preparedStmt = con.prepareStatement(query);
+
+			// binding values
+			preparedStmt.setInt(1, Integer.parseInt(pyId));
+
+			// execute the statement
+			preparedStmt.execute();
+			con.close();
+
+			output = "Deleted successfully";
+		} catch (Exception e) {
+			output = "Error while deleting the Payment.";
+			System.err.println(e.getMessage());
+		}
+		return output;
+	}
+}
