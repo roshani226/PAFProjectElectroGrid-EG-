@@ -145,10 +145,15 @@ public String deleteUnit(String unit_id) {
 			preparedStmt.execute();
 			con.close();
 			preparedStmt.setInt(6, Integer.parseInt(unit_id));	}
-}
-			output = "Deleted successfully";
+}output = "Deleted successfully";
 		} catch (Exception e) {
 			output = "Error while deleting the unit.";
+			System.err.println(e.getMessage());
+		}
+
+		return output;
+	}
+
 
 
 
