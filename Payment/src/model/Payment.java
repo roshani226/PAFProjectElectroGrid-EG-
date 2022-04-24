@@ -98,7 +98,7 @@ public class Payment {
 			}
 
 			// create a prepared statement
-			String query = "UPDATE pay1 SET pAcc=?,cName=?,pyDate=?,amount=? WHERE pyId=?";
+			
 
 			PreparedStatement preparedStmt = con.prepareStatement(query);
 
