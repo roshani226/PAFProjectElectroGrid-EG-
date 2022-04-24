@@ -90,7 +90,28 @@ public String readUnit() {
 			System.err.println(e.getMessage());
 		}
 		return output;
-	}
+public String updateUnit(String unit_id, String user_account_no, String usage_date, String used_units, String price_per_unit) {
+		String output = "";
+
+		try {
+			Connection con = connect();
+
+			if (con == null) {
+				return "Error while connecting to the database for updating.";
+			}
+
+			// create a prepared statement
+			String query = "UPDATE electricity_power_unit SET user_account_no=?,usage_date=?,used_units=?,price_per_unit=?,total_price=?" + "WHERE unit_id=?";
+
+			PreparedStatement preparedStmt = con.prepareStatement(query);
+			double sum_total_price = Double.parseDouble(used_units) * Double.parseDouble(price_per_unit);
+			// binding values
+			preparedStmt.setString(1, user_account_no);
+			preparedStmt.setString(2, usage_date);
+			preparedStmt.setString(3, used_units);
+			preparedStmt.setString(4, price_per_unit);
+			preparedStmt.setString(5, String.valueOf(sum_total_price));
+			preparedStmt.setInt(6, Integer.parseInt(unit_id));	}
 }
 
 
