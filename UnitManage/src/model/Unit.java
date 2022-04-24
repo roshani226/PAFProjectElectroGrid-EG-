@@ -123,6 +123,27 @@ public String updateUnit(String unit_id, String user_account_no, String usage_da
 
 		return output;
 	}
+public String deleteUnit(String unit_id) {
+		String output = "";
+
+		try {
+			Connection con = connect();
+
+			if (con == null) {
+				return "Error while connecting to the database for deleting.";
+			}
+
+			// create a prepared statement
+			String query = "delete from electricity_power_unit where unit_id=?";
+
+			PreparedStatement preparedStmt = con.prepareStatement(query);
+
+			// binding values
+			preparedStmt.setInt(1, Integer.parseInt(unit_id));
+
+			// execute the statement
+			preparedStmt.execute();
+			con.close();
 			preparedStmt.setInt(6, Integer.parseInt(unit_id));	}
 }
 
