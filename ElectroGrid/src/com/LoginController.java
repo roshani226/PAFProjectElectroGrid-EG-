@@ -19,8 +19,11 @@ import javax.servlet.http.HttpServletResponse;
 public class LoginController extends HttpServlet {
 	
 	/**
-	 * 
-	 */
+	 ** 
+	 *
+	 *
+	 **/
+	
 	private static final long serialVersionUID = 1L;
 	
 	protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -82,5 +85,6 @@ public class LoginController extends HttpServlet {
 			e.printStackTrace();
 		}
 
-}
+
+	}
 }
