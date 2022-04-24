@@ -24,4 +24,37 @@ public class Unit {
 		return con;
 	}
 
+public String insertUnit(String user_account_no, String usage_date, String used_units, String price_per_unit) {
+		String output = "";
+		try {
+			Connection con = connect();
+			if (con == null) {
+				return "Error while connecting to the database for inserting.";
+			}
+			// create a prepared statement
+			String query = " INSERT INTO `electricity_power_unit`(`unit_id`, `user_account_no`, `usage_date`, `used_units`, `price_per_unit`, `total_price`) VALUES (?,?,?,?,?,?)";
+			PreparedStatement preparedStmt = con.prepareStatement(query);
+			// binding values
+			double sum_total_price = Double.parseDouble(used_units) * Double.parseDouble(price_per_unit);
+			preparedStmt.setInt(1, 0);
+			preparedStmt.setString(2, user_account_no);
+			preparedStmt.setString(3, usage_date);
+			preparedStmt.setString(4, used_units);
+			preparedStmt.setString(5, price_per_unit);
+			preparedStmt.setString(6, String.valueOf(sum_total_price));
+			// execute the statement
+			preparedStmt.execute();
+			con.close();
+			output = "Inserted successfully";
+		} catch (Exception e) {
+			output = "Error while inserting the unit.";
+			System.err.println(e.getMessage());
+		}
+		return output;
+	}
+
+
 }
+
+
+
