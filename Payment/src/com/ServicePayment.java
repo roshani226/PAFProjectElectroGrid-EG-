@@ -58,7 +58,7 @@ public class ServicePayment {
 	@Produces(MediaType.TEXT_PLAIN)
 	public String deletePayment(String paymentData) {
 		// Convert the input string to an XML document
-		Document doc = Jsoup.parse(paymentData, "", Parser.xmlParser());
+		
 
 		// Read the value from the element
 		String pyId = doc.select("pyId").text();
