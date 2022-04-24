@@ -111,6 +111,18 @@ public String updateUnit(String unit_id, String user_account_no, String usage_da
 			preparedStmt.setString(3, used_units);
 			preparedStmt.setString(4, price_per_unit);
 			preparedStmt.setString(5, String.valueOf(sum_total_price));
+// execute the statement
+			preparedStmt.execute();
+			con.close();
+
+			output = "Updated successfully";
+		} catch (Exception e) {
+			output = "Error while updating the unit.";
+			System.err.println(e.getMessage());
+		}
+
+		return output;
+	}
 			preparedStmt.setInt(6, Integer.parseInt(unit_id));	}
 }
 
