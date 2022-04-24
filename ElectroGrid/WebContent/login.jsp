@@ -20,7 +20,7 @@
 			<div class="content with-header">
 				<div class="header">
 					<f-icon class="ftnt-fortinet-grid icon-xl"></f-icon>
-					<div>Admin Login</div>
+					<div>Employee Login</div>
 				</div>
 				<div class="sub-content">
 					<div class="wide-inputs">
