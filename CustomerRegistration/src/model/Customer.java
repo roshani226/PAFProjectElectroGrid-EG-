@@ -53,4 +53,45 @@ public class Customer {
 		return output;
 	}
 
+	
+	public String readCustomer() {
+		String output = "";
+		try {
+			Connection con = connect();
+			if (con == null) {
+				return "Error while connecting to the database for reading.";
+			}
+			// Prepare the html table to be displayed
+			output = "<table border=\"1\"><tr><th>Customer ID</th><th>Customer Name</th><th>Address</th><th>Email</th><th>Date</th><th>Phone No</th></tr>";
+			String query = "select * from customer1";
+			Statement stmt = (Statement) con.createStatement();
+			ResultSet rs = ((java.sql.Statement) stmt).executeQuery(query);
+			// iterate through the rows in the result set
+			while (rs.next()) {
+				String cID = Integer.toString(rs.getInt("cID"));
+				String cName = rs.getString("cName");
+				String cAddress = rs.getString("cAddress");
+				String cEmail = rs.getString("cEmail");
+				String cDate = rs.getString("cDate");
+				String pno = rs.getString("pno");
+
+				// Add into the html table
+				output += "<tr><td>" + cID + "</td>";
+				output += "<td>" + cName + "</td>";
+				output += "<td>" + cAddress + "</td>";
+				output += "<td>" + cEmail + "</td>";
+				output += "<td>" + cDate + "</td>";
+				output += "<td>" + pno + "</td>";
+				
+			}
+			con.close();
+			// Complete the html table
+			output += "</table>";
+		} catch (Exception e) {
+			output = "Error while reading the customer.";
+			System.err.println(e.getMessage());
+		}
+		return output;
+	}
+
 	 
