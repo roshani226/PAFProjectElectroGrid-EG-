@@ -73,7 +73,24 @@ public String readUnit() {
 				String price_per_unit = rs.getString("price_per_unit");
 				String total_price = rs.getString("total_price");
 
-
+// Add into the html table
+				output += "<tr><td>" + unit_id + "</td>";
+				output += "<td>" + user_account_no + "</td>";
+				output += "<td>" + usage_date + "</td>";
+				output += "<td>" + used_units + "</td>";
+				output += "<td>" + price_per_unit + "</td>";
+				output += "<td>" + total_price + "</td>";
+				
+			}
+			con.close();
+			// Complete the html table
+			output += "</table>";
+		} catch (Exception e) {
+			output = "Error while reading the unit.";
+			System.err.println(e.getMessage());
+		}
+		return output;
+	}
 }
 
 
