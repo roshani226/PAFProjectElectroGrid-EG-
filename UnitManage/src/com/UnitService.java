@@ -43,3 +43,9 @@ public class UnitService {
 
 //Convert the input string to an XML document
 	 Document doc = Jsoup.parse(unitData, "", Parser.xmlParser());
+//Read the value from the element <ID>
+	 String unit_id = doc.select("unit_id").text();
+	 String output = UnitObj.deleteUnit(unit_id);
+	return output;
+	}
+}
