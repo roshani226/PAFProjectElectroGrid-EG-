@@ -37,7 +37,7 @@ public class EmployeeAPI extends HttpServlet {
 		
 		String output = "";
 		output = empobj.readEmployees();
-		
+		  
 		response.getWriter().append(output);
 		
 	}
