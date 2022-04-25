@@ -15,4 +15,9 @@ import model.Customer;
 public class CustomerService {
 	Customer registerObj = new Customer();
 
-	 
+	@GET
+	@Path("/")
+	@Produces(MediaType.TEXT_HTML)
+	public String readCustomer() {
+		return registerObj.readCustomer();
+	}
