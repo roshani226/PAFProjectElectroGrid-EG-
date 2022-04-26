@@ -17,7 +17,7 @@ public class EmployeeAPI extends HttpServlet {
 
 	Employee empObj = new Employee();
 
-	/***
+	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
 	public EmployeeAPI() {
@@ -25,7 +25,7 @@ public class EmployeeAPI extends HttpServlet {
 		// TODO Auto-generated constructor stub
 	}
 
-	/****
+	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
@@ -37,7 +37,7 @@ public class EmployeeAPI extends HttpServlet {
 		
 		String output = "";
 		output = empobj.readEmployees();
-		  
+		
 		response.getWriter().append(output);
 		
 	}

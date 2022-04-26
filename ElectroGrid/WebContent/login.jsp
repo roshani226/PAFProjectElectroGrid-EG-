@@ -16,7 +16,7 @@
 	<div class="view-container">
 
 			<form id="formlogin" name="formlogin" 
-						action="LoginServlet">
+						action="index.jsp">
 			<div class="content with-header">
 				<div class="header">
 					<f-icon class="ftnt-fortinet-grid icon-xl"></f-icon>

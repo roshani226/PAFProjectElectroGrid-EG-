@@ -19,11 +19,8 @@ import javax.servlet.http.HttpServletResponse;
 public class LoginController extends HttpServlet {
 	
 	/**
-	 ** 
-	 *
-	 *
-	 **/
-	
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
 	
 	protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -38,10 +35,10 @@ public class LoginController extends HttpServlet {
 			Class.forName("com.mysql.jdbc.Driver");
 
 			Connection c = (Connection) DriverManager
-					.getConnection("jdbc:mysql://localhost:3306/electrogrid?characterEncoding=latin1", "root", "");
+					.getConnection("jdbc:mysql://localhost:3306/gadgetbudget?characterEncoding=latin1", "root", "");
 
 			PreparedStatement ps = (PreparedStatement) c
-					.prepareStatement("select * from User where email=? and password=?");
+					.prepareStatement("select * from User where first_name=? and password=?");
 			ps.setString(1, fname);
 			ps.setString(2, password);
 
@@ -85,6 +82,5 @@ public class LoginController extends HttpServlet {
 			e.printStackTrace();
 		}
 
-
-	}
+}
 }

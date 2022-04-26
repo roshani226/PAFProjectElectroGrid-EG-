@@ -29,7 +29,7 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
 		Class.forName("com.mysql.jdbc.Driver");
 
 		Connection c = (Connection) DriverManager
-				.getConnection("jdbc:mysql://localhost:3306/electrogrid?characterEncoding=latin1", "root", "");
+				.getConnection("jdbc:mysql://localhost:3306/gadgetbudget?characterEncoding=latin1", "root", "");
 
 		PreparedStatement ps = (PreparedStatement) c
 				.prepareStatement("select * from employee where email=? and password=?");
@@ -48,9 +48,6 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
 		e.printStackTrace();
 	}
 }
-/**
- *
- *
- **/
+
 
 }
